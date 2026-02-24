@@ -127,6 +127,16 @@ mainContainer.addEventListener("click", function (event) {
 function renderInterview() {
   filterSection.innerHTML = "";
 
+    if (interviewList.length === 0) {
+    filterSection.innerHTML = `
+      <div class="space-y-5 flex flex-col items-center justify-center text-center my-10 pb-10">
+        <img src="./icons/jobs.png" alt="">
+        <h2 class="text-2xl text-[#002C5C]">No jobs available</h2>
+        <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+      </div>
+    `
+  };
+
   for (let inter of interviewList) {
     let div = document.createElement("div");
     div.className =
@@ -171,6 +181,17 @@ function renderInterview() {
 
 function renderReject() {
   filterSection.innerHTML = "";
+
+  
+  if (rejectList.length === 0) {
+    filterSection.innerHTML = `
+      <div class="space-y-5 flex flex-col items-center justify-center text-center my-10 pb-10">
+        <img src="./icons/jobs.png" alt="">
+        <h2 class="text-2xl text-[#002C5C]">No jobs available</h2>
+        <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+      </div>
+    `
+  };
 
   for (let rejec of rejectList) {
     let div = document.createElement("div");
