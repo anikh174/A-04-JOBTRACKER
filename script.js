@@ -3,9 +3,9 @@ let rejectList = [];
 let currentStatus = "all";
 
 let total = document.getElementById("total");
-let totalJob = document.getElementById('totalJob');
-let interviewJob = document.getElementById('interviewJob');
-let rejectJob = document.getElementById('rejectJob')
+let totalJob = document.getElementById("totalJob");
+let interviewJob = document.getElementById("interviewJob");
+let rejectJob = document.getElementById("rejectJob");
 let interview = document.getElementById("interviewCount");
 let rejected = document.getElementById("rejectedCount");
 
@@ -22,7 +22,7 @@ function calculateCount() {
   interview.innerText = interviewList.length;
   rejected.innerText = rejectList.length;
   totalJob.innerText = allCardSection.children.length;
-  interviewJob.innerText =interview.innerText;
+  interviewJob.innerText = interview.innerText;
   rejectJob.innerText = rejected.innerText;
 }
 calculateCount();
@@ -44,22 +44,22 @@ function toggleStyle(id) {
   if (id == "interview-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
-    interviewJob.classList.remove('hidden');
-    ofJob.classList.remove('hidden');
-    rejectJob.classList.add('hidden');
+    interviewJob.classList.remove("hidden");
+    ofJob.classList.remove("hidden");
+    rejectJob.classList.add("hidden");
     renderInterview();
   } else if (id == "all-filter-btn") {
     allCardSection.classList.remove("hidden");
     filterSection.classList.add("hidden");
-    interviewJob.classList.add('hidden');
-    ofJob.classList.add('hidden');
-    rejectJob.classList.add('hidden');
+    interviewJob.classList.add("hidden");
+    ofJob.classList.add("hidden");
+    rejectJob.classList.add("hidden");
   } else if (id == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
-    interviewJob.classList.add('hidden');
-    ofJob.classList.remove('hidden');
-    rejectJob.classList.remove('hidden');
+    interviewJob.classList.add("hidden");
+    ofJob.classList.remove("hidden");
+    rejectJob.classList.remove("hidden");
     renderReject();
   }
 }
@@ -82,7 +82,6 @@ mainContainer.addEventListener("click", function (event) {
       statuss: "Interview",
       notes,
     };
-    
 
     const interviewExist = interviewList.find(
       (item) => item.applicantName == cardInfo.applicantName,
@@ -141,15 +140,15 @@ mainContainer.addEventListener("click", function (event) {
 function renderInterview() {
   filterSection.innerHTML = "";
 
-    if (interviewList.length === 0) {
+  if (interviewList.length === 0) {
     filterSection.innerHTML = `
       <div class="space-y-5 flex flex-col items-center justify-center text-center my-10 pb-10">
         <img src="./icons/jobs.png" alt="">
         <h2 class="text-2xl text-[#002C5C]">No jobs available</h2>
         <p class="text-[#64748B]">Check back soon for new job opportunities</p>
       </div>
-    `
-  };
+    `;
+  }
 
   for (let inter of interviewList) {
     let div = document.createElement("div");
@@ -167,7 +166,7 @@ function renderInterview() {
             </div>
 
             <div>
-              <p class="statuss px-3 py-2 bg-info/20 w-[120px] rounded-md text-[#002C5C] font-bold">
+              <p class="statuss px-3 py-2 bg-info/20 w-[120px] rounded-md text-[#002C5C] font-bold mb-3">
                 ${inter.statuss}
               </p>
               <p class="notes text-[#64748B]">
@@ -204,7 +203,6 @@ function renderInterview() {
 function renderReject() {
   filterSection.innerHTML = "";
 
-  
   if (rejectList.length === 0) {
     filterSection.innerHTML = `
       <div class="space-y-5 flex flex-col items-center justify-center text-center my-10 pb-10">
@@ -212,8 +210,8 @@ function renderReject() {
         <h2 class="text-2xl text-[#002C5C]">No jobs available</h2>
         <p class="text-[#64748B]">Check back soon for new job opportunities</p>
       </div>
-    `
-  };
+    `;
+  }
 
   for (let rejec of rejectList) {
     let div = document.createElement("div");
@@ -231,7 +229,7 @@ function renderReject() {
             </div>
 
             <div>
-              <p class="statuss px-3 py-2 bg-info/20 w-[120px] rounded-md text-[#002C5C] font-bold">
+              <p class="statuss px-3 py-2 bg-info/20 w-[120px] rounded-md text-[#002C5C] font-bold mb-3">
                 ${rejec.statuss}
               </p>
               <p class="notes text-[#64748B]">
@@ -263,4 +261,4 @@ function renderReject() {
         `;
     filterSection.appendChild(div);
   }
-};
+}
