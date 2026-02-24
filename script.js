@@ -264,9 +264,3 @@ function renderReject() {
     filterSection.appendChild(div);
   }
 };
-
-mainContainer.addEventListener("click", function (event) {
-  if (event.target.contains("deleted")) {
-    allCardSection.remove('cards');
-  }
-});
