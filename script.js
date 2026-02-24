@@ -4,6 +4,8 @@ let currentStatus = "all";
 
 let total = document.getElementById("total");
 let totalJob = document.getElementById('totalJob');
+let interviewJob = document.getElementById('interviewJob');
+let rejectJob = document.getElementById('rejectJob')
 let interview = document.getElementById("interviewCount");
 let rejected = document.getElementById("rejectedCount");
 
@@ -20,6 +22,8 @@ function calculateCount() {
   interview.innerText = interviewList.length;
   rejected.innerText = rejectList.length;
   totalJob.innerText = allCardSection.children.length;
+  interviewJob.innerText =interview.innerText;
+  rejectJob.innerText = rejected.innerText;
 }
 calculateCount();
 
@@ -40,13 +44,22 @@ function toggleStyle(id) {
   if (id == "interview-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
+    interviewJob.classList.remove('hidden');
+    ofJob.classList.remove('hidden');
+    rejectJob.classList.add('hidden');
     renderInterview();
   } else if (id == "all-filter-btn") {
     allCardSection.classList.remove("hidden");
     filterSection.classList.add("hidden");
+    interviewJob.classList.add('hidden');
+    ofJob.classList.add('hidden');
+    rejectJob.classList.add('hidden');
   } else if (id == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
+    interviewJob.classList.add('hidden');
+    ofJob.classList.remove('hidden');
+    rejectJob.classList.remove('hidden');
     renderReject();
   }
 }
@@ -61,7 +74,7 @@ mainContainer.addEventListener("click", function (event) {
     const statuss = parentNode.querySelector(".statuss").innerText;
     const notes = parentNode.querySelector(".notes").innerText;
 
-    parentNode.querySelector(".statuss").innerText = "interview";
+    parentNode.querySelector(".statuss").innerText = "Interview";
     const cardInfo = {
       applicantName,
       skillName,
@@ -69,6 +82,7 @@ mainContainer.addEventListener("click", function (event) {
       statuss: "Interview",
       notes,
     };
+    
 
     const interviewExist = interviewList.find(
       (item) => item.applicantName == cardInfo.applicantName,
@@ -174,6 +188,14 @@ function renderInterview() {
               </button>
             </div>
           </div>
+
+          <div>
+            <button
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
         `;
     filterSection.appendChild(div);
   }
@@ -230,7 +252,21 @@ function renderReject() {
               </button>
             </div>
           </div>
+
+          <div>
+            <button
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
         `;
     filterSection.appendChild(div);
   }
 };
+
+mainContainer.addEventListener("click", function (event) {
+  if (event.target.contains("deleted")) {
+    allCardSection.remove('cards');
+  }
+});
