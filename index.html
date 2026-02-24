@@ -57,7 +57,10 @@
     <main class="w-[80%] mx-auto">
       <div class="flex justify-between">
         <h3 class="text-xl mb-6 font-bold text-[#002C5C]">Available Jobs</h3>
-        <p>8 jobs</p>
+        <div class="flex gap-2 items-center">
+          <p id="totalJob" class="font-bold text-[#002C5C] text-2xl">0</p>
+          <p class="font-bold">Jobs</p>
+        </div>
       </div>
       <div class="pb-4">
         <button
@@ -86,7 +89,14 @@
       </div>
 
       <!-- filtered cardInfo -->
-      <section id="filtered-section" class="hidden"></section>
+      <section id="filtered-section" class="hidden">
+        <!-- <div class="unavailable space-y-5 flex flex-col items-center justify-center text-center my-10">
+          <img class="unavailable-img" src="./icons/jobs.png" alt="">
+
+          <h1 class="unavailable-title text-2xl text-[#002C5C]">No jobs available</h1>
+          <p class="unavailable-text text-[#64748B]">Check back soon for new job opportunities</p>
+        </div> -->
+      </section>
 
       <!-- card section -->
       <section id="allCards" class="space-y-5">
@@ -136,7 +146,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class=" btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -189,7 +199,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -244,7 +254,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -297,7 +307,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -351,7 +361,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -405,7 +415,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -459,7 +469,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -513,7 +523,7 @@
           <!-- part-2 -->
           <div>
             <button
-              class="btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
+              class="deleted btn text-error border-error hover:bg-base-100 w-[30px] h-[32px] border rounded-full items-center"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>

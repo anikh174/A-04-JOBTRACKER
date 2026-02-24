@@ -1,8 +1,9 @@
 let interviewList = [];
 let rejectList = [];
-let currentStatus = 'all';
+let currentStatus = "all";
 
 let total = document.getElementById("total");
+let totalJob = document.getElementById('totalJob');
 let interview = document.getElementById("interviewCount");
 let rejected = document.getElementById("rejectedCount");
 
@@ -18,6 +19,7 @@ function calculateCount() {
   total.innerText = allCardSection.children.length;
   interview.innerText = interviewList.length;
   rejected.innerText = rejectList.length;
+  totalJob.innerText = allCardSection.children.length;
 }
 calculateCount();
 
@@ -42,7 +44,7 @@ function toggleStyle(id) {
   } else if (id == "all-filter-btn") {
     allCardSection.classList.remove("hidden");
     filterSection.classList.add("hidden");
-  }else if (id =='rejected-filter-btn'){
+  } else if (id == "rejected-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
     renderReject();
@@ -81,7 +83,7 @@ mainContainer.addEventListener("click", function (event) {
     );
 
     calculateCount();
-    if((currentStatus == 'rejected-filter-btn')){
+    if (currentStatus == "rejected-filter-btn") {
       renderReject();
     }
   } else if (event.target.classList.contains("rejected-btn")) {
@@ -110,13 +112,13 @@ mainContainer.addEventListener("click", function (event) {
       rejectList.push(cardInfo);
     }
 
-      interviewList = interviewList.filter(
+    interviewList = interviewList.filter(
       (item) => item.applicantName != cardInfo.applicantName,
     );
 
-    if (currentStatus == 'interview-filter-btn'){
+    if (currentStatus == "interview-filter-btn") {
       renderInterview();
-    };
+    }
 
     calculateCount();
   }
@@ -127,7 +129,8 @@ function renderInterview() {
 
   for (let inter of interviewList) {
     let div = document.createElement("div");
-    div.className = "cards flex justify-between bg-base-100 p-6 mb-5 rounded-md";
+    div.className =
+      "cards flex justify-between bg-base-100 p-6 mb-5 rounded-md";
     div.innerHTML = `
          <div class="space-y-5">
             <div>
@@ -171,7 +174,8 @@ function renderReject() {
 
   for (let rejec of rejectList) {
     let div = document.createElement("div");
-    div.className = "cards flex justify-between bg-base-100 p-6 mb-5 rounded-md";
+    div.className =
+      "cards flex justify-between bg-base-100 p-6 mb-5 rounded-md";
     div.innerHTML = `
          <div class="space-y-5">
             <div>
@@ -208,4 +212,4 @@ function renderReject() {
         `;
     filterSection.appendChild(div);
   }
-}
+};
