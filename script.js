@@ -135,6 +135,12 @@ mainContainer.addEventListener("click", function (event) {
 
     calculateCount();
   }
+
+    if (event.target.parentNode.classList.contains("deleted")) {
+    const deleted = event.target.parentNode.parentNode.parentNode;
+    deleted.remove();
+    calculateCount();
+  }
 });
 
 function renderInterview() {
